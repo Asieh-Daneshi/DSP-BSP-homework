@@ -1,0 +1,11 @@
+function[y]=c1()
+n=0;
+p=1;
+while(n<=20)
+    x=(0.9)^n*cos(0.2*pi*n+pi/3);
+    n=n+1;
+    y(p)=x;
+    p=p+1;
+end
+m=[0:20];
+stem(m,y)

@@ -1,0 +1,21 @@
+function[]=Q24d()
+x=[0,0,0,0,0,0,1,-2,4,6,-5,8,10,0,0,0,0,0,0,0,0];
+n=-10:10;
+m=-10;
+a=1;
+while (m<=10)
+    [x11,n11]=sigshift(x,n,-2);
+    z11=2*exp(0.5*m)*x(a);
+    z22=cos(0.1*pi*m)*x11(a);
+    z1(a)=z11;z2(a)=z22;
+    y1=z1+z2;
+    a=a+1;
+    m=m+1;
+end
+[xe,xo,g]=evenodd(y1,n);
+subplot(2,1,1)
+stem(g,xe)
+title('xe')
+subplot(2,1,2)
+stem(g,xo)
+title('xo')

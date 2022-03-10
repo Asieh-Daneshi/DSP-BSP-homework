@@ -1,0 +1,12 @@
+function[y]=d1()
+n=0;
+p=1;
+while(n<=100)
+    x=10*cos(0.0008*pi*n^2);
+    n=n+1;
+    z(p)=x;
+    p=p+1;
+end
+y=z+randn(1,101);
+m=[0:100];
+stem(m,y)

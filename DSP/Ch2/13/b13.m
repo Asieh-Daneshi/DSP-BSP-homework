@@ -1,0 +1,20 @@
+function[y]=b13()
+x=[1,2,3,4];
+n=0:3;
+h=[3,2,1];
+m=0:2;
+[h1,m1]=sigshift(h,m,1);
+[h2,m2]=sigshift(h,m,2);
+[h3,m3]=sigshift(h,m,3);
+[h4,m4]=sigshift(h,m,4);
+a=3;
+while(a>=1)
+    z(1,m1(a))=h1(a);
+    z(2,m2(a))=h2(a);
+    z(3,m3(a))=h3(a);
+    z(4,m4(a))=h4(a);
+    a=a-1;
+end
+f=z';
+y=f*x';
+

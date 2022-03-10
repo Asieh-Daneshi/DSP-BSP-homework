@@ -1,0 +1,24 @@
+function [G,k] = kfilter()
+clc
+clear
+M=29;
+w=zeros(M,1); 
+x=conj(w);
+A=I(M)
+m=max(size(A));
+k0=.01*eye(m);
+dd=1;
+it=1;
+maxit=1000;
+  while (dd>1e-8 && it<=maxit);
+    G0= (A*k0*C')/(V2+C*k0*C');
+    k1= A*k0*A' + V1 -G0*C*k0*A';
+    G1= (A*k1*C')/(V2+C*k1*C');
+    dd=max(max(abs(G1-G0)));
+    it=it+1;
+    k0=k1;
+  end
+  G=G1;k=k0;
+%   if it>=maxit 
+%     disp('WARNING: Iteration limit of 1000 reached in KFILTER.M'); 
+%   end

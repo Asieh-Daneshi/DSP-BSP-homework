@@ -1,0 +1,24 @@
+function[y5]=b1()
+n1=-5;
+m1=1;
+while(n1<6)
+    x1=n1^2;
+    n1=n1+1;
+    y1(m1)=x1;
+    m1=m1+1;
+end
+n2=4;
+m2=1;
+while(n2<10)
+    x2=20*(0.5)^(n2);
+    n2=n2+1;
+    y2(m2)=x2;
+    m2=m2+1;
+end
+y3=impseq(0,0,25);
+m3=[-5:5];
+m4=[4:9];
+m5=[0:25];
+[y4,n3]=sigadd(y1,m3,y2,m4);
+[y5,n4]=sigadd(y4,n3,y3,m5);
+stem(n4,y5)

@@ -1,0 +1,24 @@
+function[y]=Q24e()
+x=[1,-2,4,6,-5,8,10];
+n=-4:2;
+[a1,m1]=sigshift(x,n,1);
+[a2,m2]=sigshift(x,n,2);
+[a3,m3]=sigshift(x,n,3);
+[a4,m4]=sigshift(x,n,4);
+[a5,m5]=sigshift(x,n,5);
+[z1,n1]=sigadd(a1,m1,a2,m2);
+[z2,n2]=sigadd(a3,m3,a4,m4);
+[z3,n3]=sigadd(z1,n1,a5,m5);
+[z4,n4]=sigadd(z2,n2,z3,n3);
+m=1;
+while(m<=7)    
+    y(m)=m*z4(m);
+    m=m+1;
+end    
+[xe,xo,g]=evenodd(y,n);
+subplot(2,1,1)
+stem(g,xe)
+title('xe')
+subplot(2,1,2)
+stem(g,xo)
+title('xo')

@@ -1,0 +1,16 @@
+function[]=Q24c()
+x=[1,-2,4,6,-5,8,10];
+n=-4:2;
+[x11,n11]=sigshift(x,n,-4);[x22,n22]=sigshift(x,n,1);
+[x33,n33]=sigfold(x,n);
+[x44,n44]=sigshift(x33,n33,2)
+[x1,n1]=sigmult(x11,n11,x22,n22);
+[x2,n2]=sigmult(x44,n44,x,n);
+[y1,n3]=sigadd(x1,n1,x2,n2);
+[xe,xo,g]=evenodd(y1,n3);
+subplot(2,1,1)
+stem(g,xe)
+title('xe')
+subplot(2,1,2)
+stem(g,xo)
+title('xo')
